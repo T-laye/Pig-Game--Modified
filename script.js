@@ -53,6 +53,9 @@ const switchPlayer = function () {
 // Rolling dice functionality
 btnRoll.addEventListener('click', function () {
   const forbidden = Number(document.querySelector('.forb').value);
+  if (playing && (forbidden === 0 || forbidden >= 7)) {
+    alert('Please enter a valid forbidden number');
+  }
   if (playing && forbidden >= 1 && forbidden <= 6) {
     //1. Generating a random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
